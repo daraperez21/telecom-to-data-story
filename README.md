@@ -1,5 +1,5 @@
 # Telecom To Data Story
-# Promt 
+# Prompt 
 
 Vamos a construir mi sitio web profesional. 
 
