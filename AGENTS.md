@@ -18,3 +18,6 @@
 > bypasses those policies. Validation rules live in one shared zod schema used by
 > both the form and the handler.
 <!-- AGENTS:END -->
+
+- Public professional content uses separate top-level TanStack routes with a shared header/footer in the root, so every page is directly shareable.
+- Page metadata is generated through the shared pageMeta helper and declared in each content route to keep titles and social descriptions specific.
