@@ -48,11 +48,11 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="rounded-2xl border border-primary/40 bg-card p-8 text-center shadow-glow">
-        <CheckCircle2 className="mx-auto h-10 w-10 text-primary-glow" />
+      <div className="rounded-md border border-primary/40 bg-card p-8 text-center">
+        <CheckCircle2 className="mx-auto h-10 w-10 text-primary" />
         <h3 className="mt-4 text-2xl font-medium">¡Mensaje enviado!</h3>
         <p className="mt-3 text-muted-foreground">
-          Gracias por escribirme. Te responderé lo antes posible al correo que indicaste.
+          Gracias por escribirme. Tu mensaje se ha recibido correctamente.
         </p>
         <Button
           type="button"
@@ -73,7 +73,7 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="rounded-2xl border border-border bg-card p-6 md:p-8"
+      className="space-y-5 border-t-2 border-primary pt-8"
     >
       <div className="space-y-5">
         <div className="grid gap-5 md:grid-cols-2">
@@ -115,7 +115,7 @@ export function ContactForm() {
 
         {/* The control must not sit inside its own label: the label re-forwards the
             click and the checkbox would toggle twice and look frozen. */}
-        <div className="flex items-start gap-3 rounded-xl border border-border bg-secondary/60 p-4 transition has-[:focus-visible]:border-primary has-[:checked]:border-primary">
+        <div className="flex items-start gap-3 border-y border-border bg-secondary/60 p-4 transition has-[:focus-visible]:border-primary has-[:checked]:border-primary">
           <Checkbox
             id="requestingServices"
             className="mt-1"

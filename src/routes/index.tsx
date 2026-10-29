@@ -1,102 +1,48 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, ArrowUpRight, Cable, ChartNoAxesCombined, Layers3, Check } from "lucide-react";
 import photo from "@/assets/dara.jpg.asset.json";
-import cover from "@/assets/portada.png.asset.json";
-import { ContactForm } from "@/components/contact-form";
+import network from "@/assets/fiber-network.jpg";
+import { Button } from "@/components/ui/button";
+import { pageMeta } from "@/lib/page-meta";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Dara Judith — Ingeniera en Telecomunicaciones + Ciencia de Datos" },
-      { name: "description", content: "Ingeniera en telecomunicaciones, gerente de proyectos y diseñadora de proyectos TI en camino a la ciencia de datos y UX/UI." },
-      { property: "og:title", content: "Dara Judith — Telecomunicaciones + Ciencia de Datos" },
-      { property: "og:description", content: "Trayectoria en telecom y gestión de proyectos TI, rumbo a la ciencia de datos." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Index,
+  head: () => pageMeta("Dara Judith — Ingeniera en Telecomunicaciones | FTTH y proyectos TI", "Conoce a Dara Judith: experiencia en diseño FTTH y gerencia de proyectos TI, con formación en análisis de datos. Disponible para proyectos y oportunidades profesionales."),
+  component: Home,
 });
 
-const career = [
-  { t: "Ingeniera en Telecomunicaciones", d: "Bases sólidas en redes, fibra óptica e infraestructura de comunicaciones." },
-  { t: "Gerente de Proyectos", d: "Liderazgo de equipos, planeación, control de alcance, tiempos y presupuesto." },
-  { t: "Diseñadora de Proyectos TI", d: "Diseño de soluciones tecnológicas alineadas a las necesidades del negocio." },
-];
-
-const Dot = () => <span className="mb-6 block h-1 w-14 rounded-full bg-primary" />;
-
-function Index() {
-  return (
-    <main className="min-h-screen bg-background font-sans text-foreground">
-      <section className="bg-hero">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-[1.4fr_1fr] md:py-28">
-          <div>
-            <Dot />
-            <p className="mb-3 text-accent">Hola, soy Dara Judith</p>
-            <h1 className="text-4xl font-medium leading-tight md:text-6xl">
-              Ingeniería de Telecomunicaciones <span className="text-primary-glow">+ Ciencia de Datos</span>
-            </h1>
-            <p className="mt-5 text-lg text-accent">Análisis de datos + fibra óptica</p>
-          </div>
-          <img src={photo.url} alt="Dara Judith" className="mx-auto aspect-square w-64 rounded-full border-4 border-primary object-cover shadow-glow md:w-80" />
+function Home() {
+  return <main>
+    <section className="home-hero">
+      <img src={network} alt="Infraestructura de fibra óptica con paneles de conexión" width={1920} height={1024} className="hero-background" />
+      <div className="site-container hero-content reveal">
+        <span className="eyebrow">Ingeniera en Telecomunicaciones · Proyectos TI</span>
+        <h1>Dara Judith<span className="block text-primary-glow">Conectar. Gestionar.<br />Analizar.</span></h1>
+        <p className="hero-description">Experiencia en redes FTTH y gestión de proyectos. Una mirada técnica que hoy amplío hacia el análisis de datos.</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Button asChild size="lg"><Link to="/contacto">Hablemos de tu proyecto <ArrowUpRight /></Link></Button>
+          <Button asChild size="lg" variant="outline" className="hero-button-secondary"><Link to="/trayectoria">Conoce mi trayectoria <ArrowRight /></Link></Button>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <Dot />
-        <h2 className="text-3xl font-medium md:text-4xl">Trayectoria profesional</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {career.map((c) => (
-            <article key={c.t} className="rounded-xl border border-border bg-card p-6 transition hover:border-primary hover:shadow-glow">
-              <h3 className="text-xl font-medium text-primary-glow">{c.t}</h3>
-              <p className="mt-3 text-muted-foreground">{c.d}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <Dot />
-          <h2 className="text-3xl font-medium md:text-4xl">Mi siguiente camino: Ciencia de Datos</h2>
-          <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
-            Estoy en busca de un camino en ciencia de datos. Aunque aún no cuento con experiencia
-            profesional en el área, he tomado cursos para prepararme y estoy lista para nuevos retos,
-            uniendo mi visión técnica de telecomunicaciones con el poder de los datos.
-          </p>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <Dot />
-        <h2 className="text-3xl font-medium md:text-4xl">Diseño UX/UI</h2>
-        <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
-          También tomo cursos de diseño UX/UI, lo que aporta en ambas partes: diseño proyectos TI
-          pensando en las personas y presento los datos de forma clara y visual.
-        </p>
-      </section>
-
-      <section id="contacto" className="bg-secondary">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1fr_1.2fr] md:items-start">
-          <div>
-            <Dot />
-            <h2 className="text-3xl font-medium md:text-4xl">Hablemos de tu proyecto</h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              ¿Buscas apoyo para un proyecto de telecomunicaciones, gestión TI o análisis de datos?
-              Cuéntame qué necesitas y te escribo con una propuesta.
-            </p>
-            <p className="mt-4 text-sm text-muted-foreground">
-              También puedes escribirme solo para saludar o pedir más información.
-            </p>
-          </div>
-          <ContactForm />
-        </div>
-      </section>
-
-      <footer className="border-t border-border">
-        <img src={cover.url} alt="Portada: Ingeniería de Telecomunicaciones + Ciencia de Datos" className="w-full" />
-        <p className="py-6 text-center text-sm text-muted-foreground">© 2026 Dara Judith</p>
-      </footer>
-    </main>
-  );
+      </div>
+    </section>
+    <div className="expertise-strip"><div className="site-container flex flex-wrap justify-between gap-x-8 gap-y-3 py-5">
+      {["Diseño de redes FTTH", "Gerencia de proyectos", "Soluciones TI", "Formación en análisis de datos"].map(item => <span key={item} className="flex items-center gap-2"><Check className="h-3 w-3 text-primary-glow" />{item}</span>)}
+    </div></div>
+    <section className="site-container section-space profile-grid">
+      <div className="portrait-wrap"><img src={photo.url} alt="Dara Judith" loading="lazy" /><div className="portrait-caption"><p className="font-display text-base font-medium">Dara Judith</p><p className="text-xs text-muted-foreground">Ingeniera · Gerente de proyectos</p></div></div>
+      <div><span className="eyebrow">Mi perfil</span><h2>Una base técnica.<br />Una visión de principio a fin.</h2>
+        <p className="section-copy">Mi trayectoria reúne diseño de proyectos de fibra óptica, gerencia de proyectos y soluciones TI. Me interesa conectar las necesidades de un proyecto con una ejecución organizada y una visión clara de su alcance.</p>
+        <p className="section-copy">Hoy continúo formándome en análisis de datos y UX/UI para ampliar esa perspectiva: comprender la información y comunicarla pensando en las personas.</p>
+        <Link to="/trayectoria" className="text-link mt-7">Ver experiencia y herramientas <ArrowRight className="h-4 w-4" /></Link>
+      </div>
+    </section>
+    <section className="bg-secondary"><div className="site-container section-space">
+      <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><span className="eyebrow">Áreas de enfoque</span><h2>Lo que puedo aportar.</h2></div><p className="max-w-sm text-sm text-muted-foreground">Experiencia consolidada y una nueva área en la que busco crecer.</p></div>
+      <div className="grid gap-5 md:grid-cols-3">
+        <article className="work-card"><Cable className="card-icon" /><h3 className="text-xl">Redes de fibra óptica</h3><p className="section-copy">Diseño de proyectos FTTH con una base técnica en infraestructura y herramientas de fibra óptica.</p><div className="mt-6 flex flex-wrap gap-4"><span className="skill-label">FTTH</span><span className="skill-label">AutoCAD</span></div><Link to="/trayectoria" className="text-link mt-7">Mi experiencia <ArrowUpRight className="h-4 w-4" /></Link></article>
+        <article className="work-card"><Layers3 className="card-icon" /><h3 className="text-xl">Gestión de proyectos TI</h3><p className="section-copy">Organización, coordinación y seguimiento para dar estructura al trabajo y mantener el enfoque del proyecto.</p><div className="mt-6 flex flex-wrap gap-4"><span className="skill-label">Jira</span><span className="skill-label">Trello</span></div><Link to="/contacto" className="text-link mt-7">Conversemos <ArrowUpRight className="h-4 w-4" /></Link></article>
+        <article className="work-card"><ChartNoAxesCombined className="card-icon" /><h3 className="text-xl">Análisis de datos</h3><p className="section-copy">Formación en consulta, análisis y visualización. Busco mi primera experiencia profesional en esta área.</p><div className="mt-6 flex flex-wrap gap-4"><span className="skill-label">SQL · Python</span><span className="skill-label">Power BI · Tableau</span></div><Link to="/analisis-de-datos" className="text-link mt-7">Mi nuevo rumbo <ArrowUpRight className="h-4 w-4" /></Link></article>
+      </div>
+    </div></section>
+    <section className="contact-band"><div className="site-container section-space flex flex-col justify-between gap-8 md:flex-row md:items-center"><div><span className="eyebrow text-primary-glow">Nuevas oportunidades</span><h2>¿Un proyecto en mente?<br />Empecemos una conversación.</h2><p className="mt-4 max-w-xl text-sm">Proyectos de telecomunicaciones, gestión TI u oportunidades para comenzar en análisis de datos.</p></div><Button asChild size="lg"><Link to="/contacto">Contactar a Dara <ArrowUpRight /></Link></Button></div></section>
+  </main>;
 }
