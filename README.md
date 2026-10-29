@@ -1,4 +1,24 @@
 # Telecom To Data Story
+# Promt 
+
+Vamos a construir mi sitio web profesional. 
+
+Rol: Eres un diseñador de sitios web 
+Tarea: Es construuir y diseñar un sitio web profesional que contenga mi trayectoria profesional como ingeniera en telecomunicaciones, enfocada a ffth y proyectos TI, con un cambio de rumbo en el analisis de datos, (en otras palabras quiero empezar a ganar experiencia en el analisis de datos).
+
+Contexto: Construir un sitio web que me ayude que al publicarlo pueda atraer a mas personas interesadas ya sea en telecomunicaciones o analisis de datos para contratarme, y en caso de aplicar a alguna vacante pueda yo tambien hacer que el sitio web actue como un resumen de mi vida profesional.
+
+Restricciones:
+Sigue usando mi foto que te mande para el sitio.
+Te voy a subir otra foto de portada que sigue tiendo la misma paleta de colores que tenemos ahorita; puedes usar algunas imagenes referentes tambien para apotar calidad y visibilidad al sitio que vayan a corde al tema. 
+
+Quiero que hagas incapie en mi experiencia en telecomunicaciones (diseño de proyecto de FFTH, gerencia de proyecto uso de heeramientas de fibra optica, AutcoCAD, Jira, Trello etc, pero que no se vea tan amontonado), mis estudios en analisis de datos, es importante porque acutalmente no tengo experiencia como tal en el area & que puedas poner mis habilidades para el analisis como dominio de sql, python, Power Bi, Tableu, AI, Y como un extra estudios en UX/UI que contribuyen a mi experiencia y desempeño. 
+
+& de preferencia en el sitio no seas tan redundante porque en nuestro borrador tenemos mucho telecomunicaciones mas ciencia de datos y si en escencia queremos recalcar eso, que tampoco se sienta tan amontonado.
+
+Como elemento interactivo quiero un formulario de contacto. 
+Si quieres incluir algun otro boton o componte interactivo que ayude y aporte al sitio web esta bien siempre y cuando al publicarlo estos elementos funcionen.
+
 
 # Dara Judith — Portafolio profesional
 
