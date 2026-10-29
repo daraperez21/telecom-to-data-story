@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import photo from "@/assets/dara.jpg.asset.json";
 import cover from "@/assets/portada.png.asset.json";
+import { ContactForm } from "@/components/contact-form";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,6 +74,23 @@ function Index() {
           También tomo cursos de diseño UX/UI, lo que aporta en ambas partes: diseño proyectos TI
           pensando en las personas y presento los datos de forma clara y visual.
         </p>
+      </section>
+
+      <section id="contacto" className="bg-secondary">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1fr_1.2fr] md:items-start">
+          <div>
+            <Dot />
+            <h2 className="text-3xl font-medium md:text-4xl">Hablemos de tu proyecto</h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              ¿Buscas apoyo para un proyecto de telecomunicaciones, gestión TI o análisis de datos?
+              Cuéntame qué necesitas y te escribo con una propuesta.
+            </p>
+            <p className="mt-4 text-sm text-muted-foreground">
+              También puedes escribirme solo para saludar o pedir más información.
+            </p>
+          </div>
+          <ContactForm />
+        </div>
       </section>
 
       <footer className="border-t border-border">
