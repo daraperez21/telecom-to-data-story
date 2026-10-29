@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalisisDeDatosRouteImport } from './routes/analisis-de-datos'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as TrayectoriaRouteImport } from './routes/trayectoria'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalisisDeDatosRoute = AnalisisDeDatosRouteImport.update({
+  id: '/analisis-de-datos',
+  path: '/analisis-de-datos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrayectoriaRoute = TrayectoriaRouteImport.update({
+  id: '/trayectoria',
+  path: '/trayectoria',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analisis-de-datos': typeof AnalisisDeDatosRoute
+  '/contacto': typeof ContactoRoute
+  '/trayectoria': typeof TrayectoriaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analisis-de-datos': typeof AnalisisDeDatosRoute
+  '/contacto': typeof ContactoRoute
+  '/trayectoria': typeof TrayectoriaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analisis-de-datos': typeof AnalisisDeDatosRoute
+  '/contacto': typeof ContactoRoute
+  '/trayectoria': typeof TrayectoriaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/analisis-de-datos' | '/contacto' | '/trayectoria'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/analisis-de-datos' | '/contacto' | '/trayectoria'
+  id: '__root__' | '/' | '/analisis-de-datos' | '/contacto' | '/trayectoria'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalisisDeDatosRoute: typeof AnalisisDeDatosRoute
+  ContactoRoute: typeof ContactoRoute
+  TrayectoriaRoute: typeof TrayectoriaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analisis-de-datos': {
+      id: '/analisis-de-datos'
+      path: '/analisis-de-datos'
+      fullPath: '/analisis-de-datos'
+      preLoaderRoute: typeof AnalisisDeDatosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trayectoria': {
+      id: '/trayectoria'
+      path: '/trayectoria'
+      fullPath: '/trayectoria'
+      preLoaderRoute: typeof TrayectoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalisisDeDatosRoute: AnalisisDeDatosRoute,
+  ContactoRoute: ContactoRoute,
+  TrayectoriaRoute: TrayectoriaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
