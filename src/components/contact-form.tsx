@@ -113,24 +113,24 @@ export function ContactForm() {
           </div>
         </div>
 
-        <label
-          htmlFor="requestingServices"
-          className="flex cursor-pointer items-start gap-3 rounded-xl border border-border bg-secondary/60 p-4 transition hover:border-primary"
-        >
+        {/* The control must not sit inside its own label: the label re-forwards the
+            click and the checkbox would toggle twice and look frozen. */}
+        <div className="flex items-start gap-3 rounded-xl border border-border bg-secondary/60 p-4 transition has-[:focus-visible]:border-primary has-[:checked]:border-primary">
           <Checkbox
             id="requestingServices"
+            className="mt-1"
             checked={requesting}
             onCheckedChange={(checked) => setValue("requestingServices", checked === true)}
           />
-          <span>
+          <label htmlFor="requestingServices" className="flex-1 cursor-pointer">
             <span className="block font-medium">Quiero solicitar tus servicios profesionales</span>
             <span className="mt-1 block text-sm text-muted-foreground">
               {requesting
                 ? "Perfecto: cuéntame en el mensaje qué necesitas y en qué plazo."
                 : "Marca esta casilla si buscas contratar un proyecto o una asesoría."}
             </span>
-          </span>
-        </label>
+          </label>
+        </div>
 
         <div>
           <div className="flex items-baseline justify-between">
